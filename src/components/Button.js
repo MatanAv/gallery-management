@@ -3,16 +3,18 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Button = ({ text, onClick, routeTo }) => {
-  return routeTo !== undefined ? (
-    <Link to='`/${routeTo}`'>
+  // console.log(routeTo);
+
+  return !routeTo ? (
+    <button className='btn' onClick={() => onClick(text)} type='button'>
+      {text}
+    </button>
+  ) : (
+    <Link to={`/${routeTo}`}>
       <button className='btn' type='button'>
         {text}
       </button>
     </Link>
-  ) : (
-    <button className='btn' onClick={() => onClick(text)} type='button'>
-      {text}
-    </button>
   );
 };
 

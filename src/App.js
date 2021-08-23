@@ -8,18 +8,18 @@ import SearchPage from "./components/SearchPage";
 const App = () => {
   return (
     <Router>
-      <div className="container">
+      <div className='container'>
         <header>
           <Header />
         </header>
         <nav>
           <NavBar />
         </nav>
-        <div className="content">
+        <div className='content'>
           <Switch>
-            <Route exact path="/" component={HomePage}></Route>
-            <Route exact path="/home" component={HomePage}></Route>
-            <Route exact path="/search" component={SearchPage}></Route>
+            <Route exact path='/' component={HomePage}></Route>
+            <Route exact path='/home' component={HomePage}></Route>
+            <Route exact path='/search' component={SearchPage}></Route>
           </Switch>
         </div>
       </div>

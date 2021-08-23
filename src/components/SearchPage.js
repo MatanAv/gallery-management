@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 
 const SearchPage = () => {
   return (
-    <div className="searchpage">
+    <div className='searchpage'>
       <SearchBar />
     </div>
   );
