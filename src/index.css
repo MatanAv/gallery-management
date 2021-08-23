@@ -42,3 +42,40 @@ body {
   padding: 5px 10px;
   margin: 0px 5px 0px 5px;
 }
+
+.search-results {
+  padding: 40px;
+}
+
+.btn-back {
+  padding-top: 40px;
+}
+
+.fav-list {
+  padding: 40px;
+}
+
+.images-list {
+  list-style-type: none;
+  /* padding: 30px; */
+}
+
+.image {
+  display: inline-block;
+  padding: 20px;
+}
+
+.add-image {
+  width: 150px;
+  height: 99px;
+  border-radius: 1vw;
+  border: 3px dashed black;
+}
+
+.add-image span {
+  font-weight: bold;
+  font-size: 15px;
+  position: relative;
+  cursor: pointer;
+  top: 42%;
+}
