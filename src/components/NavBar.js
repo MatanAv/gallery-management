@@ -1,15 +1,15 @@
 import React from "react";
 import Button from "./Button";
 
-const NavBar = ({ handlePages }) => {
+const NavBar = () => {
   return (
-    <div className="nav_bar">
+    <div className='nav_bar'>
       <ul>
         <li>
-          <Button onClickBtn={handlePages} text="Home Page" type="button" />
+          <Button text='Home Page' routeTo='home' />
         </li>
         <li>
-          <Button onClickBtn={handlePages} text="Search Page" type="button" />
+          <Button text='Search Page' routeTo='search' />
         </li>
       </ul>
     </div>
