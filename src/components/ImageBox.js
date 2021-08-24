@@ -1,17 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ImageBox = (isLast) => {
+const ImageBox = ({ isLast, imageAddr }) => {
   return (
     <li className='image'>
       {!isLast ? (
-        <img
-          src='https://cdn.pixabay.com/photo/2021/08/19/16/31/flowers-6558487__340.jpg'
-          width='150'
-          height='99'
-        />
+        <img src={imageAddr} width='150' height='99' alt='' />
       ) : (
         <div className='add-image'>
-          <span>Add Image</span>
+          <span>
+            <Link to='/search' id='add-link'>
+              Add Image
+            </Link>
+          </span>
         </div>
       )}
     </li>

@@ -5,7 +5,7 @@ const HomePage = () => {
   const [favList, setFavList] = useState([]);
 
   return (
-    <div className='homepage'>
+    <div>
       <h3>My Favorites</h3>
       <div className='fav-list'>
         <ul className='images-list'>

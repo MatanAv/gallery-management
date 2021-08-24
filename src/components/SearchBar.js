@@ -1,10 +1,15 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-const SearchBar = () => {
+const SearchBar = ({ onSubmit }) => {
   const [text, setText] = useState("");
 
   return (
-    <form className='search-form' onSumbit={null}>
+    <form
+      className='search-form'
+      // onSubmit={(e) => (text ? onSubmit(text) : e.preventDefault())}
+      onSubmit={(e) => onSubmit(e, text)}
+    >
       <div className='form-control-search'>
         <input
           className='search-bar'
@@ -17,6 +22,10 @@ const SearchBar = () => {
       </div>
     </form>
   );
+};
+
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
