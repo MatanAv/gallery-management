@@ -1,8 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Button = ({ text, onClick, routeTo }) => {
+  const [show, setShow] = useState(true);
+
   return !routeTo ? (
     <button className='btn' onClick={() => onClick(text)} type='button'>
       {text}

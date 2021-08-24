@@ -9,7 +9,7 @@ const SearchPage = () => {
     searchValue: "",
     amount: 30,
     totalResults: 0,
-    images: [],
+    images: null,
   });
 
   const api = {
@@ -26,7 +26,7 @@ const SearchPage = () => {
             &image_type=photo&per_page=${results.amount}`
         );
 
-        console.log(response.data);
+        // console.log(response.data);
 
         setResults({
           ...results,
@@ -40,19 +40,26 @@ const SearchPage = () => {
     }
   };
 
-  console.log(results);
+  // console.log(results);
 
   return (
     <div>
       <SearchBar onSubmit={fetchImages} />
-      <br />
       <div className='search-results'>
         {results.totalResults > 0 ? (
-          <ul className='images-list'>
-            <ImageBox />
+          <ul className='img-list'>
+            {results.images.map((image) => (
+              <ImageBox
+                key={image.id}
+                imgLink={image.webformatURL}
+                owner={image.user}
+              />
+            ))}
           </ul>
         ) : (
-          <span>No Results</span>
+          results.images && (
+            <span>No results found for {`"${results.searchValue}"`}</span>
+          )
         )}
       </div>
       <Button text='Back To Home Page' routeTo='home' />

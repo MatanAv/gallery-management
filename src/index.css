@@ -56,32 +56,51 @@ body {
   padding: 40px;
 }
 
-.images-list {
+.img-list {
   list-style-type: none;
 }
 
-.image {
+.img-item {
   display: inline-block;
   padding: 20px;
 }
 
-.add-image {
+.img-box img {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.115);
+}
+
+.img-box img:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.212);
+  opacity: 0.75;
+}
+
+.add-img {
   width: 150px;
   height: 99px;
   border-radius: 1vw;
   border: 3px dashed black;
 }
 
-.add-image span {
+.add-img span {
   position: relative;
   cursor: pointer;
   top: 42%;
 }
 
-#add-link:visited,
-#add-link:link {
+#add-img-link:visited,
+#add-img-link:link {
   font-weight: bold;
   font-size: 14px;
   text-decoration: none;
   color: black;
+}
+
+.btn-in-img {
+  position: relative;
+}
+
+.btn-in-img span {
+  position: absolute;
+  bottom: 34px;
+  left: 56px;
 }

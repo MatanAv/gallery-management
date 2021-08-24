@@ -1,15 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import Button from "./Button";
 
-const ImageBox = ({ isLast, imageAddr }) => {
+const ImageBox = ({ isLast, imgLink, owner }) => {
   return (
-    <li className='image'>
+    <li className='img-item'>
       {!isLast ? (
-        <img src={imageAddr} width='150' height='99' alt='' />
+        <div className='img-box'>
+          <img src={imgLink} width='150' height='99' alt='' />
+          <div className='btn-in-img'>
+            <span>
+              <Button text='Add' />
+            </span>
+          </div>
+        </div>
       ) : (
-        <div className='add-image'>
+        <div className='add-img'>
           <span>
-            <Link to='/search' id='add-link'>
+            <Link to='/search' id='add-img-link'>
               Add Image
             </Link>
           </span>
@@ -17,6 +26,12 @@ const ImageBox = ({ isLast, imageAddr }) => {
       )}
     </li>
   );
+};
+
+ImageBox.propTypes = {
+  isLast: PropTypes.bool,
+  imgLink: PropTypes.string,
+  owner: PropTypes.string,
 };
 
 export default ImageBox;
