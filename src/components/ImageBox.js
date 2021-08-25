@@ -1,35 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-const ImageBox = ({ isLast, imgLink, owner }) => {
+const ImageBox = ({ imgLink, owner }) => {
+  const [show, setShow] = useState("hidden");
+
   return (
     <li className='img-item'>
-      {!isLast ? (
-        <div className='img-box'>
-          <img src={imgLink} width='150' height='99' alt='' />
-          <div className='btn-in-img'>
-            <span>
-              <Button text='Add' />
-            </span>
-          </div>
-        </div>
-      ) : (
-        <div className='add-img'>
+      <div
+        className='img-box'
+        onMouseOver={() => setShow("visible")}
+        onMouseLeave={() => setShow("hidden")}
+      >
+        <img src={imgLink} width='150' height='99' alt='' />
+        <div className='btn-in-img' style={{ visibility: show }}>
           <span>
-            <Link to='/search' id='add-img-link'>
-              Add Image
-            </Link>
+            <Button text='Add' />
           </span>
         </div>
-      )}
+      </div>
     </li>
   );
 };
 
 ImageBox.propTypes = {
-  isLast: PropTypes.bool,
   imgLink: PropTypes.string,
   owner: PropTypes.string,
 };

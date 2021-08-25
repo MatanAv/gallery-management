@@ -1,54 +1,16 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import Button from "./Button";
 import ImageBox from "./ImageBox";
 import SearchBar from "./SearchBar";
-import axios from "axios";
 
-const SearchPage = () => {
-  const [results, setResults] = useState({
-    searchValue: "",
-    amount: 30,
-    totalResults: 0,
-    images: null,
-  });
-
-  const api = {
-    url: "https://pixabay.com/api",
-    key: "23048158-b0f008045508100619ab90fab",
-  };
-
-  const fetchImages = async (e, text) => {
-    e.preventDefault();
-    if (text) {
-      try {
-        const response = await axios.get(
-          `${api.url}/?key=${api.key}&q=${text}
-            &image_type=photo&per_page=${results.amount}`
-        );
-
-        // console.log(response.data);
-
-        setResults({
-          ...results,
-          searchValue: text,
-          totalResults: response.data.totalHits,
-          images: response.data.hits,
-        });
-      } catch (err) {
-        alert(err);
-      }
-    }
-  };
-
-  // console.log(results);
-
+const SearchPage = ({ search, fetchImages }) => {
   return (
     <div>
       <SearchBar onSubmit={fetchImages} />
-      <div className='search-results'>
-        {results.totalResults > 0 ? (
-          <ul className='img-list'>
-            {results.images.map((image) => (
+      <div className='img-list'>
+        {search.totalResults > 0 ? (
+          <ul>
+            {search.images.map((image) => (
               <ImageBox
                 key={image.id}
                 imgLink={image.webformatURL}
@@ -57,14 +19,18 @@ const SearchPage = () => {
             ))}
           </ul>
         ) : (
-          results.images && (
-            <span>No results found for {`"${results.searchValue}"`}</span>
+          search.images && (
+            <span>No results found for {`"${search.searchValue}"`}</span>
           )
         )}
       </div>
       <Button text='Back To Home Page' routeTo='home' />
     </div>
   );
+};
+
+SearchPage.propTypes = {
+  fetchImages: PropTypes.func.isRequired,
 };
 
 export default SearchPage;

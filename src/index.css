@@ -44,20 +44,16 @@ body {
   margin: 0px 5px 0px 5px;
 }
 
-.search-results {
-  padding: 40px;
+.img-list {
+  padding: 20px;
+}
+
+.img-list ul {
+  list-style-type: none;
 }
 
 .btn-back {
   padding-top: 40px;
-}
-
-.fav-list {
-  padding: 40px;
-}
-
-.img-list {
-  list-style-type: none;
 }
 
 .img-item {
@@ -74,17 +70,18 @@ body {
   opacity: 0.75;
 }
 
-.add-img {
+.add-img-box {
+  position: relative;
+  cursor: pointer;
   width: 150px;
   height: 99px;
   border-radius: 1vw;
   border: 3px dashed black;
 }
 
-.add-img span {
+#add-img-link {
   position: relative;
-  cursor: pointer;
-  top: 42%;
+  top: 37px;
 }
 
 #add-img-link:visited,
