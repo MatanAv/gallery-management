@@ -22,7 +22,7 @@ const HomePage = ({ favImgs, removeFromFavs }) => {
           <li className='img-item'>
             <div
               className='add-img-box'
-              style={favImgs.length ? { bottom: "79px" } : { bottom: "0px" }}
+              style={favImgs.length ? { float: "left" } : { bottom: "0px" }}
             >
               <Link to='/search' id='add-img-link'>
                 Add Image

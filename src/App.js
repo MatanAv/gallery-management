@@ -50,17 +50,14 @@ const App = () => {
     }
   };
 
-  // TODO - Check
   const addToFavs = (image) => {
-    console.log(image);
-    setFavImgs({ ...favImgs, image });
-    console.log(favImgs);
+    setFavImgs([...favImgs, image]);
   };
 
-  // TODO - Check
   const removeFromFavs = (id) => {
+    console.log(id);
     setFavImgs(
-      favImgs.images.filter((image) => {
+      favImgs.filter((image) => {
         return id !== image.id;
       })
     );

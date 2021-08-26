@@ -48,11 +48,15 @@ body {
 }
 
 .img-list {
+  /* position: relative; */
+  /* width: 100%; */
   padding: 20px;
 }
 
 .img-list ul {
   list-style-type: none;
+  text-align: center;
+  overflow: hidden;
 }
 
 .btn-back {
@@ -61,7 +65,18 @@ body {
 
 .img-item {
   display: inline-block;
+  /* display: block; */
+  /* float: left; */
   padding: 20px;
+}
+
+.add-img-box {
+  /* position: relative; */
+  cursor: pointer;
+  width: 150px;
+  height: 99px;
+  border-radius: 1vw;
+  border: 3px dashed black;
 }
 
 .img-box {
@@ -85,15 +100,6 @@ body {
 .img-box img:hover {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.212);
   opacity: 0.75;
-}
-
-.add-img-box {
-  position: relative;
-  cursor: pointer;
-  width: 150px;
-  height: 99px;
-  border-radius: 1vw;
-  border: 3px dashed black;
 }
 
 #add-img-link {
