@@ -14,23 +14,17 @@ const HomePage = ({ favImgs, removeFromFavs }) => {
                 key={image.id}
                 imgLink={image.address}
                 owner={image.owner}
-                isFav={true}
                 btnText='Remove'
-                btnOnClick={() => removeFromFavs(image.id)}
+                btnOnClick={() => removeFromFavs(image)}
               />
             ))}
-          <li className='img-item'>
-            <div
-              className='add-img-box'
-              style={favImgs.length ? { float: "left" } : { bottom: "0px" }}
-            >
-              <Link to='/search' id='add-img-link'>
-                Add Image
-              </Link>
-            </div>
-          </li>
         </ul>
       </div>
+      <Link to='/search'>
+        <div className='add-img-box'>
+          <span>Add Image</span>
+        </div>
+      </Link>
     </div>
   );
 };

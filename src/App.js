@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import SearchPage from "./components/SearchPage";
 
+const LOCAL_STORAGE_KEY = "favs";
+
 const API = {
   url: "https://pixabay.com/api",
   key: "23048158-b0f008045508100619ab90fab",
@@ -20,6 +22,15 @@ const App = () => {
   });
 
   const [favImgs, setFavImgs] = useState([]);
+
+  useEffect(() => {
+    const storedFavs = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (storedFavs) setFavImgs(storedFavs);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(favImgs));
+  }, [favImgs, search]);
 
   const fetchImages = async (e, text) => {
     e.preventDefault();
@@ -39,6 +50,7 @@ const App = () => {
               id: image.id,
               address: image.webformatURL,
               owner: image.user,
+              onFavs: false,
             };
           }),
         });
@@ -51,17 +63,22 @@ const App = () => {
   };
 
   const addToFavs = (image) => {
-    setFavImgs([...favImgs, image]);
+    console.log(image);
+    console.log(search.images);
+
+    const newImg = { ...image, onFavs: true };
+    setFavImgs([...favImgs, newImg]);
   };
 
-  const removeFromFavs = (id) => {
-    console.log(id);
+  const removeFromFavs = (image) => {
     setFavImgs(
-      favImgs.filter((image) => {
-        return id !== image.id;
+      favImgs.filter((img) => {
+        return image.id !== img.id;
       })
     );
   };
+
+  console.log(search.images);
 
   return (
     <Router>
@@ -93,6 +110,7 @@ const App = () => {
                   search={search}
                   fetchImages={fetchImages}
                   addToFavs={addToFavs}
+                  favList={favImgs}
                   {...props}
                 />
               )}

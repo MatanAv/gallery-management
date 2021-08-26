@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Button = ({ text, routeTo, isDisabled, onClick }) => {
   return !routeTo ? (
     <button
-      className='btn'
+      className={`btn ${isDisabled ? "btn-disabled" : ""}`}
       type='button'
       disabled={isDisabled}
       onClick={onClick}

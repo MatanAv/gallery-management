@@ -3,7 +3,7 @@ import Button from "./Button";
 import ImageBox from "./ImageBox";
 import SearchBar from "./SearchBar";
 
-const SearchPage = ({ search, fetchImages, addToFavs }) => {
+const SearchPage = ({ search, fetchImages, addToFavs, favList }) => {
   return (
     <div>
       <SearchBar onSubmit={fetchImages} />
@@ -14,6 +14,13 @@ const SearchPage = ({ search, fetchImages, addToFavs }) => {
               <ImageBox
                 key={image.id}
                 imgLink={image.address}
+                disabled={
+                  favList.filter((img) => {
+                    return image.id === img.id && img.onFavs;
+                  }).length
+                    ? true
+                    : false
+                }
                 btnText='Add'
                 btnOnClick={() => addToFavs(image)}
               />

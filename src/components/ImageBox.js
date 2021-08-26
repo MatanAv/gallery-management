@@ -2,14 +2,8 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-const ImageBox = ({ imgLink, btnText, btnOnClick, isFav, owner }) => {
+const ImageBox = ({ imgLink, btnText, btnOnClick, owner, disabled }) => {
   const [show, setShow] = useState("hidden");
-  const [disabled, setDisabled] = useState(false);
-
-  const handleOnClick = () => {
-    setDisabled(true);
-    btnOnClick();
-  };
 
   return (
     <li className='img-item'>
@@ -18,17 +12,11 @@ const ImageBox = ({ imgLink, btnText, btnOnClick, isFav, owner }) => {
         onMouseOver={() => setShow("visible")}
         onMouseLeave={() => setShow("hidden")}
       >
-        <img
-          src={imgLink}
-          width='150'
-          height='99'
-          alt=''
-          title={isFav ? { owner } : ""}
-        />
+        <img src={imgLink} width='150' height='99' alt='' title={owner} />
         <div style={{ visibility: show }}>
           <Button
-            text={btnText}
-            onClick={handleOnClick}
+            text={disabled ? "Added" : `${btnText}`}
+            onClick={btnOnClick}
             isDisabled={disabled}
           />
         </div>
@@ -41,8 +29,8 @@ ImageBox.propTypes = {
   imgLink: PropTypes.string,
   btnText: PropTypes.string.isRequired,
   btnOnClick: PropTypes.func.isRequired,
-  isFav: PropTypes.bool,
   owner: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default ImageBox;
