@@ -4,8 +4,13 @@ import PropTypes from "prop-types";
 const SearchBar = ({ onSubmit }) => {
   const [text, setText] = useState("");
 
+  const handleSubmit = (e) => {
+    onSubmit(e, text);
+    setText("");
+  };
+
   return (
-    <form className='search-form' onSubmit={(e) => onSubmit(e, text)}>
+    <form className='search-form' onSubmit={handleSubmit}>
       <div className='form-control-search'>
         <input
           className='search-bar'

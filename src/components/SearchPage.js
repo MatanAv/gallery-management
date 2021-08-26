@@ -3,7 +3,7 @@ import Button from "./Button";
 import ImageBox from "./ImageBox";
 import SearchBar from "./SearchBar";
 
-const SearchPage = ({ search, fetchImages }) => {
+const SearchPage = ({ search, fetchImages, addToFavs }) => {
   return (
     <div>
       <SearchBar onSubmit={fetchImages} />
@@ -13,8 +13,9 @@ const SearchPage = ({ search, fetchImages }) => {
             {search.images.map((image) => (
               <ImageBox
                 key={image.id}
-                imgLink={image.webformatURL}
-                owner={image.user}
+                imgLink={image.address}
+                btnText='Add'
+                btnOnClick={() => addToFavs(image)}
               />
             ))}
           </ul>
@@ -31,6 +32,7 @@ const SearchPage = ({ search, fetchImages }) => {
 
 SearchPage.propTypes = {
   fetchImages: PropTypes.func.isRequired,
+  addToFavs: PropTypes.func.isRequired,
 };
 
 export default SearchPage;

@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Button = ({ text, onClick, routeTo }) => {
+const Button = ({ text, routeTo, isDisabled, onClick }) => {
   return !routeTo ? (
-    <button className='btn' onClick={() => onClick(text)} type='button'>
+    <button
+      className='btn'
+      type='button'
+      disabled={isDisabled}
+      onClick={onClick}
+    >
       {text}
     </button>
   ) : (
@@ -16,9 +21,10 @@ const Button = ({ text, onClick, routeTo }) => {
 };
 
 Button.propTypes = {
-  text: PropTypes.string,
-  onClick: PropTypes.func,
+  text: PropTypes.string.isRequired,
   routeTo: PropTypes.string,
+  isDisabled: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default Button;

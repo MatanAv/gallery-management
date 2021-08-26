@@ -19,7 +19,7 @@ const App = () => {
     images: null,
   });
 
-  const [favs, setFavs] = useState({ currLen: 0, images: null });
+  const [favImgs, setFavImgs] = useState([]);
 
   const fetchImages = async (e, text) => {
     e.preventDefault();
@@ -30,21 +30,41 @@ const App = () => {
             &image_type=photo&per_page=${search.amount}`
         );
 
-        // console.log(response.data);
-
         setSearch({
           ...search,
           searchValue: text,
           totalResults: response.data.totalHits,
-          images: response.data.hits,
+          images: response.data.hits.map((image) => {
+            return {
+              id: image.id,
+              address: image.webformatURL,
+              owner: image.user,
+            };
+          }),
         });
       } catch (err) {
         alert(err);
       }
+    } else {
+      setSearch({ searchValue: "", amount: 30, totalResults: 0, images: null });
     }
   };
 
-  // console.log(search);
+  // TODO - Check
+  const addToFavs = (image) => {
+    console.log(image);
+    setFavImgs({ ...favImgs, image });
+    console.log(favImgs);
+  };
+
+  // TODO - Check
+  const removeFromFavs = (id) => {
+    setFavImgs(
+      favImgs.images.filter((image) => {
+        return id !== image.id;
+      })
+    );
+  };
 
   return (
     <Router>
@@ -60,7 +80,13 @@ const App = () => {
             <Route
               exact
               path={["/", "/home"]}
-              render={(props) => <HomePage favs={favs} {...props} />}
+              render={(props) => (
+                <HomePage
+                  favImgs={favImgs}
+                  removeFromFavs={removeFromFavs}
+                  {...props}
+                />
+              )}
             ></Route>
             <Route
               exact
@@ -69,6 +95,7 @@ const App = () => {
                 <SearchPage
                   search={search}
                   fetchImages={fetchImages}
+                  addToFavs={addToFavs}
                   {...props}
                 />
               )}
