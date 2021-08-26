@@ -8,5 +8,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. Run 'npm install' command on terminal to install relevant packages.
 3. Run 'npm start' command on terminal in order to run locally.
 
-Unfortunatly I haven't completed the whole bonuses. not any known problems.
+Unfortunately I haven't completed the whole bonuses. not any known problems.
 Thanks for the opportunity!
