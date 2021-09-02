@@ -63,9 +63,6 @@ const App = () => {
   };
 
   const addToFavs = (image) => {
-    console.log(image);
-    console.log(search.images);
-
     const newImg = { ...image, onFavs: true };
     setFavImgs([...favImgs, newImg]);
   };
@@ -77,8 +74,6 @@ const App = () => {
       })
     );
   };
-
-  console.log(search.images);
 
   return (
     <Router>
