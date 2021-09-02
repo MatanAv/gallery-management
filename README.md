@@ -1,12 +1,10 @@
-# Microfocus test, Matan Avraham
+# Find & Save Photos Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## A web application built from scratch, that allows the user to search for images, then save them into his favorites list.
 
-## Instructions
+The application was built using the following technologies:
 
-1. Unzip the project then open terminal on the project folder.
-2. Run 'npm install' command on terminal to install relevant packages.
-3. Run 'npm start' command on terminal in order to run locally.
-
-Unfortunately, I have completed only the second bonus due to lack of a time. not any known problems.
-Thanks for the opportunity!
+    React.js
+    JavaScript
+    CSS
+    HTML
