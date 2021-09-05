@@ -4,7 +4,8 @@
 
 The application was built using the following technologies:
 
-- React.js
+React.js
+
 - PixaBay API
 - JavaScript
 - CSS
