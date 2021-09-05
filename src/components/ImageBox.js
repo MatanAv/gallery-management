@@ -12,7 +12,7 @@ const ImageBox = ({ imgLink, btnText, btnOnClick, owner, disabled }) => {
         onMouseOver={() => setShow("visible")}
         onMouseLeave={() => setShow("hidden")}
       >
-        <img src={imgLink} width='150' height='99' alt='' title={owner} />
+        <img src={imgLink} width='190' height='120' alt='' title={owner} />
         <div style={{ visibility: show }}>
           <Button
             text={disabled ? "Added" : `${btnText}`}

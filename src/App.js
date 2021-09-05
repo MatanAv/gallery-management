@@ -1,17 +1,11 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { API, LOCAL_STORAGE_KEY } from "./Constants";
 import axios from "axios";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import SearchPage from "./components/SearchPage";
-
-const LOCAL_STORAGE_KEY = "favs";
-
-const API = {
-  url: "https://pixabay.com/api",
-  key: "23048158-b0f008045508100619ab90fab",
-};
 
 const App = () => {
   const [search, setSearch] = useState({
@@ -88,17 +82,6 @@ const App = () => {
           <Switch>
             <Route
               exact
-              path={["/", "/home"]}
-              render={(props) => (
-                <HomePage
-                  favImgs={favImgs}
-                  removeFromFavs={removeFromFavs}
-                  {...props}
-                />
-              )}
-            ></Route>
-            <Route
-              exact
               path='/search'
               render={(props) => (
                 <SearchPage
@@ -106,6 +89,15 @@ const App = () => {
                   fetchImages={fetchImages}
                   addToFavs={addToFavs}
                   favList={favImgs}
+                  {...props}
+                />
+              )}
+            ></Route>
+            <Route
+              render={(props) => (
+                <HomePage
+                  favImgs={favImgs}
+                  removeFromFavs={removeFromFavs}
                   {...props}
                 />
               )}

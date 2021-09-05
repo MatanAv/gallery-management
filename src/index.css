@@ -36,6 +36,7 @@ body {
   border-style: none;
   border-radius: 6vw;
   padding: 5px 5px;
+  cursor: pointer;
 }
 
 .btn-disabled {
@@ -67,35 +68,35 @@ body {
 
 .img-item {
   display: inline-block;
-  padding: 20px;
+  padding: 18px;
 }
 
 .add-img-box {
   display: inline-block;
   cursor: pointer;
-  width: 150px;
-  height: 99px;
+  width: 190px;
+  height: 120px;
   border-radius: 1vw;
   border: 3px dashed black;
 }
 
 .add-img-box span {
   position: relative;
-  top: 37px;
+  top: 44px;
   font-size: 13px;
   color: black;
 }
 
 .img-box {
   position: relative;
-  width: 150px;
-  height: 99px;
+  width: 190px;
+  height: 120px;
 }
 
 .img-box button {
   position: absolute;
   width: 44%;
-  top: 36px;
+  top: 47px;
   right: 28%;
   opacity: 0.9;
 }
