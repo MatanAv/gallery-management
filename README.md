@@ -1,4 +1,4 @@
-# Find & Save Photos Website
+# Gallery Management Website
 
 #### A web application built from scratch, that allows the user to search for images, then save them into his favorites list.
 
