@@ -15,9 +15,7 @@ const SearchPage = ({ search, fetchImages, addToFavs, favList }) => {
                 key={image.id}
                 imgLink={image.address}
                 disabled={
-                  favList.filter((img) => {
-                    return image.id === img.id && img.onFavs;
-                  }).length
+                  favList.find((img) => return image.id === img.id && img.onFavs).length
                     ? true
                     : false
                 }
